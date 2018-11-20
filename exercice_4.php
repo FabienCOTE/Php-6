@@ -1,9 +1,12 @@
 <?php
-  if((isset($_GET['language'])) && (isset($_GET['server']))) {
+if (!is_numeric($_GET['language']) || !is_numeric($_GET['server'])) {
+    $error = 'ok';
+}
+if (isset($_GET['language']) && isset($_GET['server']) && $error == 'ok') {
     $display = 'Langage "' . $_GET['language'] . '"<br />Serveur "' . $_GET['server'] . '"';
-  } else {
+} else {
     $display = 'Il y une erreur dans les paramètres';
-  }
+}
 ?>
 <!DOCTYPE html>
 <!--
@@ -23,7 +26,7 @@ and open the template in the editor.
             <p>Faire une page index.php. Tester sur cette page que tous les paramètres de cette URL existent et les afficher:<br /> index.php?language=PHP&server=LAMP</p>
         </div>
         <div>
-            <p><?= $display ?></p>
+            <p><?= htmlspecialchars($display) ?></p>
         </div>
     </body>
 </html>

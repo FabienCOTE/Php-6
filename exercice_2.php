@@ -1,9 +1,12 @@
 <?php
-  if(isset($_GET['age'])) {
+if (is_numeric($_GET['age'])) {
+    $error = 'ok';
+}
+if (isset($_GET['age']) && $error == 'ok') {
     $display = 'Vous avez ' . $_GET['age'] . ' ans.';
-  } else {
+} else {
     $display = 'Vous devez indiquer votre âge dans la barre d\'adresse';
-  }
+}
 ?>
 <!DOCTYPE html>
 <!--
@@ -23,7 +26,7 @@ and open the template in the editor.
             <p>Faire une page index.php. Tester sur cette page que le paramètre age existe et si c'est le cas l'afficher sinon le signaler : <br />index.php?lastName=Nemare&firstName=Jean</p>
         </div>
         <div>
-            <p><?= $display ?></p>
+            <p><?= htmlspecialchars($display) ?></p>
         </div>
     </body>
 </html>

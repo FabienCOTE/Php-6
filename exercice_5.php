@@ -1,9 +1,12 @@
 <?php
-  if(isset($_GET['week'])) {
+if (is_numeric($_GET['week'])) {
+    $error = 'ok';
+}
+if (isset($_GET['week']) && $error == 'ok') {
     $display = 'Semaine n° ' . $_GET['week'] . '.';
-  } else {
+} else {
     $display = 'Il y une erreur dans les paramètres';
-  }
+}
 ?>
 <!DOCTYPE html>
 <!--
@@ -23,7 +26,7 @@ and open the template in the editor.
             <p>Faire une page index.php. Tester sur cette page que tous les paramètres de cette URL existent et les afficher:<br /> index.php?week=12</p>
         </div>
         <div>
-            <p><?= $display ?></p>
+            <p><?= htmlspecialchars($display) ?></p>
         </div>
     </body>
 </html>

@@ -1,9 +1,12 @@
 <?php
-  if((isset($_GET['lastName'])) && (isset($_GET['firstName']))) {
+if (!is_numeric($_GET['lastName']) || !is_numeric($_GET['firstName'])) {
+    $error = 'ok';
+}
+if (isset($_GET['lastName']) && isset($_GET['firstName']) && $error == 'ok') {
     $display = 'Votre nom est "' . $_GET['lastName'] . '" et votre prénom est "' . $_GET['firstName'] . '".';
-  } else {
+} else {
     $display = 'Vous devez indiquer votre nom et prénom dans la barre d\'adresse';
-  }
+}
 ?>
 <!DOCTYPE html>
 <!--
@@ -23,7 +26,7 @@ and open the template in the editor.
             <p>Faire une page index.php. Tester sur cette page que tous les paramètres de cette URL existent et les afficher:<br/>index.php?lastName=Nemare&firstName=Jean</p>
         </div>
         <div>
-            <p><?= $display ?></p>
+            <p><?= htmlspecialchars($display) ?></p>
         </div>
     </body>
 </html>
