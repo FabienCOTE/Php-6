@@ -1,8 +1,5 @@
 <?php
-if (is_numeric($_GET['week'])) {
-    $error = 'ok';
-}
-if (isset($_GET['week']) && $error == 'ok') {
+if (isset($_GET['week'])) {
     $display = 'Semaine n° ' . $_GET['week'] . '.';
 } else {
     $display = 'Il y une erreur dans les paramètres';

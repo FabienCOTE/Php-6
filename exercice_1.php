@@ -1,7 +1,4 @@
 <?php
-if (!is_numeric($_GET['lastName']) || !is_numeric($_GET['firstName'])) {
-    $error = 'ok';
-}
 if (isset($_GET['lastName']) && isset($_GET['firstName']) && $error == 'ok') {
     $display = 'Votre nom est "' . $_GET['lastName'] . '" et votre prénom est "' . $_GET['firstName'] . '".';
 } else {

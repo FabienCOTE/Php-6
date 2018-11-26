@@ -1,8 +1,5 @@
 <?php
-if (is_numeric($_GET['age'])) {
-    $error = 'ok';
-}
-if (isset($_GET['age']) && $error == 'ok') {
+if (isset($_GET['age'])) {
     $display = 'Vous avez ' . $_GET['age'] . ' ans.';
 } else {
     $display = 'Vous devez indiquer votre âge dans la barre d\'adresse';

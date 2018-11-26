@@ -1,9 +1,6 @@
 <?php
-if (is_numeric($_GET['building']) || is_numeric($_GET['room'])) {
-    $error = 'ok';
-}
-if (isset($_GET['building']) && isset($_GET['room']) && $error == 'ok') {
-    $display = 'Building n° ' . $_GET['building'] . '<br /> Room n° ' . $_GET['room'];
+if (isset($_GET['building']) && isset($_GET['room'])) {
+    $display = 'Building n° ' . $_GET['building'] . ' Room n° ' . $_GET['room'];
 } else {
     $display = 'Il y une erreur dans les paramètres';
 }

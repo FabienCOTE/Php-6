@@ -1,9 +1,6 @@
 <?php
-if (!is_numeric($_GET['language']) || !is_numeric($_GET['server'])) {
-    $error = 'ok';
-}
-if (isset($_GET['language']) && isset($_GET['server']) && $error == 'ok') {
-    $display = 'Langage "' . $_GET['language'] . '"<br />Serveur "' . $_GET['server'] . '"';
+if (isset($_GET['language']) && isset($_GET['server'])) {
+    $display = 'Langage "' . $_GET['language'] . '" Serveur "' . $_GET['server'] . '"';
 } else {
     $display = 'Il y une erreur dans les paramètres';
 }
